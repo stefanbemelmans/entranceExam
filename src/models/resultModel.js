@@ -2,37 +2,37 @@ import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
   
-  title: {
+  name: {
     required: true,
     type: String
   },
-  veg: {
+  test1: {
     required: true,
     type: Boolean
   },
-  vegan: {
+  test2: {
     required: true,
     type: Boolean
   },
-  gf: {
+  test3: {
     requried: true,
     type: Boolean
   },
-  servings: {
+  test4: {
     required: true,
     type: String
   },
-  mTypes: {
+  test5: {
     required: true,
     type: Array
   },
-  ingredients: 
+  text1: 
   {
     required: true,
     type: String
     
   },
-  instructions: {
+  text2: {
     requried: true,
     type: String
   }  
@@ -40,4 +40,4 @@ const schema = new mongoose.Schema({
 
 });
 
-export default mongoose.model("Recipe", schema);
+export default mongoose.model("result", schema);

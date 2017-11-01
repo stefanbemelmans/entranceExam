@@ -1,22 +1,22 @@
-import recipeModel from "../models/recipeModel";
+import resultModel from "../models/resultModel";
 
-export function list(request, response) {
-  recipeModel.find({}).exec().then(
-    recipes => {
-      return response.json(recipes);
-    }
-  );
-}
+// export function list(request, response) {
+//   resultModel.find({}).exec().then(
+//     result => {
+//       return response.json(result);
+//     }
+//   );
+// }
 
-export function show(request, response) {
-  recipeModel.findById(request.params.id).exec().then(
-    recipe => {
-      return response.json(recipe);
-    });
-}
+// export function show(request, response) {
+//   resultModel.findById(request.params.id).exec().then(
+//     result => {
+//       return response.json(result);
+//     });
+// }
 // .body is the whole thing. (thanks Jon!)
 export function create(request, response) {
-  const recipe = new recipeModel({
+  const result = new resultModel({
     title: request.body.title,
     veg: request.body.veg,
     vegan: request.body.vegan,
@@ -26,40 +26,40 @@ export function create(request, response) {
     ingredients: request.body.ingredients,
     instructions: request.body.instructions
   });
-  recipe.save()
+  result.save()
     .then(() => {
       console.log(response);
-      return response.json(recipe);
+      return response.json(result);
  
     });
  
   
 }
-export function update(request, response, next) {
-  console.log(request.body);
-  // const recipeUpdate = request.body;
-  recipeModel.findById(request.params.id).exec()
-  .then(recipe => {
+// export function update(request, response, next) {
+//   console.log(request.body);
+//   // const recipeUpdate = request.body;
+//   resultModel.findById(request.params.id).exec()
+//   .then(result => {
    
-    recipe.title = request.body.title || recipe.title;
-    recipe.veg = request.body.veg || recipe.veg;
-    recipe.vegan = request.body.vegan || recipe.vegan;
-    recipe.gf = request.body.gf || recipe.gf;
-    recipe.servings = request.body.servings || recipe.servings;
-    recipe.mTypes = request.body.mTypes || recipe.mTypes;
-    recipe.ingredients = request.body.ingredients || recipe.ingredients;
-    recipe.instructions = request.body.instructions || recipe.instructions;
+//     result.title = request.body.title || result.title;
+//     result.veg = request.body.veg || result.veg;
+//     result.vegan = request.body.vegan || result.vegan;
+//     result.gf = request.body.gf || result.gf;
+//     result.servings = request.body.servings || result.servings;
+//     result.mTypes = request.body.mTypes || result.mTypes;
+//     result.ingredients = request.body.ingredients || result.ingredients;
+//     result.instructions = request.body.instructions || result.instructions;
 
-    return recipe.save();
-  })
-  .then(changedRecipe => {
-    return response.json(changedRecipe);
-  })
-  .catch(err => {
-    return next(err);
-  });
+//     return result.save();
+//   })
+//   .then(changedresult => {
+//     return response.json(changedresult);
+//   })
+//   .catch(err => {
+//     return next(err);
+//   });
    
-}
+// }
 // update: (request, response, next) => {
 //   User.findByIdAndUpdate(request.params.id).exec()
 //   .then(user => {
@@ -81,12 +81,12 @@ export function update(request, response, next) {
 
 
 
-export function remove(request, response) {
-  recipeModel.findByIdAndRemove({_id: request.params.id}).exec()
-  .then(() => {
+// export function remove(request, response) {
+//   recipeModel.findByIdAndRemove({_id: request.params.id}).exec()
+//   .then(() => {
     
-    return response.send("recipe deleted");
+//     return response.send("recipe deleted");
 
-  }); 
+//   }); 
 
 }
