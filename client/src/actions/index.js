@@ -14,29 +14,29 @@ function myRecipesLoaded(recipes) {
     value: recipes
   };
 }
-export function getRecipe(id) {
-  return function (dispatch) {
-    fetch("/recipes/" + id)
-      .then( (response) => {
-        return response.json();
-      }).then((recipe) => {
-        dispatch(getRecipeDone(recipe));
-      });
-  };
-}
-function getRecipeDone(recipe) {
-  return {
-    type: "GET_RECIPE_DONE",
-    value: recipe
-  };
-}
+// export function getRecipe(id) {
+//   return function (dispatch) {
+//     fetch("/recipes/" + id)
+//       .then( (response) => {
+//         return response.json();
+//       }).then((recipe) => {
+//         dispatch(getRecipeDone(recipe));
+//       });
+//   };
+// }
+// function getRecipeDone(recipe) {
+//   return {
+//     type: "GET_RECIPE_DONE",
+//     value: recipe
+//   };
+// }
 
-export function createRecipe(recipe) {
+export function addTest(test) {
   return function (dispatch) {
-    fetch("/recipes", {
+    fetch("/tests", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(recipe)
+      body: JSON.stringify(test)
     })
     .then(() => {
       return dispatch(loadMyRecipes());
@@ -44,29 +44,29 @@ export function createRecipe(recipe) {
   };
 }
 
-export function deleteRecipe(id) {
-  console.log("trying to delete");
-  return function (dispatch) {
-    fetch("/recipes/" + id, {
-      method: "DELETE",
-      headers: {"Content-Type": "application/json"},
-    }).then(() => dispatch(loadMyRecipes()));
-  };
-}
+// export function deleteRecipe(id) {
+//   console.log("trying to delete");
+//   return function (dispatch) {
+//     fetch("/recipes/" + id, {
+//       method: "DELETE",
+//       headers: {"Content-Type": "application/json"},
+//     }).then(() => dispatch(loadMyRecipes()));
+//   };
+// }
 
-export function updateRecipe(recipe) {
-  return function (dispatch) {
-    console.log(recipe);
-    fetch("/recipes/" + recipe._id, {
-      method: "PUT",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(recipe)
-    })
-    .then(console.log("response"),() => {
-      return dispatch(loadMyRecipes());
-    });
-  };
-}
+// export function updateRecipe(recipe) {
+//   return function (dispatch) {
+//     console.log(recipe);
+//     fetch("/recipes/" + recipe._id, {
+//       method: "PUT",
+//       headers: {"Content-Type": "application/json"},
+//       body: JSON.stringify(recipe)
+//     })
+//     .then(console.log("response"),() => {
+//       return dispatch(loadMyRecipes());
+//     });
+//   };
+// }
 
 // export function setMealTypes(arrayOfOptions) {
 //   const arr = [];

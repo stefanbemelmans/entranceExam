@@ -26,13 +26,13 @@ const schema = new mongoose.Schema({
     required: true,
     type: Array
   },
-  text1: 
+  typingTest: 
   {
     required: true,
-    type: String
+    type: Object
     
   },
-  text2: {
+  text1: {
     requried: true,
     type: String
   }  

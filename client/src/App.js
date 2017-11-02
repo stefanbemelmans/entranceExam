@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import CreateRecipe from "./containers/CreateRecipeContainer";
-import MyRecipeList from "./containers/MyRecipeListContainer";
-import RecipeDetails from "./containers/RecipeDetailsContainer";
-import EditRecipe from "./containers/EditRecipeContainer";
+import EntranceExam from "./containers/EntranceExamContainer";
+import TestList from "./containers/TestListContainer";
+// import RecipeDetails from "./containers/RecipeDetailsContainer";
+// import EditRecipe from "./containers/EditRecipeContainer";
 import PropTypes from "prop-types";
 // impor Link from 
 import "./App.css";
@@ -28,12 +28,11 @@ class App extends Component {
           <div>
             {/* <EditRecipe /> */}
             <Switch>
-              <Route path="/createRecipe/" component={CreateRecipe} />
-              <Route exact path="/edit/:id" component={EditRecipe} />
-              <Route path="/recipe/:id" component={RecipeDetails} />
-              <Route path="/" component={MyRecipeList} />
+              {/*  <Route path="/createRecipe/" component={CreateRecipe} /> */}
+              {/* <Route exact path="/edit/:id" component={EditRecipe} /> */}
+              {/* <Route path="/entrance/:id" component={TestDetails} /> */}
+              <Route path="/" component={EntranceExam} />
             </Switch>
-            <Link to="/createRecipe">Create Recipe!</Link><br />
             <Link to="/">Recipe List!</Link>
           </div>
         </BrowserRouter>

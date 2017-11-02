@@ -17,14 +17,14 @@ import resultModel from "../models/resultModel";
 // .body is the whole thing. (thanks Jon!)
 export function create(request, response) {
   const result = new resultModel({
-    title: request.body.title,
-    veg: request.body.veg,
-    vegan: request.body.vegan,
-    gf: request.body.gf,
-    servings: request.body.servings,
-    mTypes: request.body.mTypes,
-    ingredients: request.body.ingredients,
-    instructions: request.body.instructions
+    name: request.body.name,
+    test1: request.body.test1,
+    test2: request.body.test2,
+    test3: request.body.test3,
+    test4: request.body.servings,
+    // mTypes: request.body.mTypes,
+    typingTest: request.body.typingTest,
+    text1: request.body.text1
   });
   result.save()
     .then(() => {

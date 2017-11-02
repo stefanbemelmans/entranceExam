@@ -1,5 +1,5 @@
 export default {
-  myRecipes: [],
-  getRecipeDone: {}
+  tests: [],
+  getTestDone: {}
 
 };

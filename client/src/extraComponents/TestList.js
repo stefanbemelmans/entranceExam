@@ -1,19 +1,19 @@
 import React, {Component} from "react";
 // import Link from "react-router-dom";
-import Recipe from "../containers/RecipeContainer";
+import Test from "../containers/TestContainer";
 import PropTypes from "prop-types";
 
-export default class MyRecipeList extends Component {
+export default class TestList extends Component {
   constructor(props) {
     super(props);
 
   }
   
   render() {   
-    const recipes = this.props.recipes.map(function (rec, i) {
+    const tests = this.props.tests.map(function (test, i) {
     
       return (
-        <Recipe key={i} rec={rec} />
+        <Test key={i} test={test} />
       );  
     } 
      
@@ -23,12 +23,12 @@ export default class MyRecipeList extends Component {
     return (
       <div>
         <div className="recListHeader">
-          <h1> My Recipe List </h1>
+          <h1> Tests List </h1>
          
         </div>
         <div className="recipeList">
           
-          {recipes}
+          {tests}
           
         </div>
       </div>
@@ -36,8 +36,8 @@ export default class MyRecipeList extends Component {
   }
 }
 
-MyRecipeList.propTypes = {
-  recipes: PropTypes.array
+TestsList.propTypes = {
+  tests: PropTypes.array
 }; 
 
 // getIndRec(id) {

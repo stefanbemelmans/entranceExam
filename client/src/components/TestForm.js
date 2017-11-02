@@ -1,28 +1,28 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import MealTypes from "./MealTypes";
-import {withRouter} from "react-router-dom";
+// import MealTypes from "./MealTypes";
+// import {withRouter} from "react-router-dom";
 
-export default class RecipeForm extends Component {
+export default class TestForm extends Component {
   constructor(props) {
     super(props);
   
     this.state = 
     {
     
-      title: "",
-      servings: "",
-      veg: false,
-      vegan: false,
-      gf: false,
-      mTypes: [],
-      ingredients: "",
-      instructions: ""
+      test1: "",
+      test2: "",
+      boolean: false,
+      boolean2: false,
+      boolean3: false,
+      // mTypes: [],
+      typingTest: {},
+      essay: ""
     };
 
     this.baseState = this.state;
     
-    this.setMealTypes = this.setMealTypes.bind(this);
+    // this.setMealTypes = this.setMealTypes.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     
   }
@@ -33,24 +33,24 @@ export default class RecipeForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const recipe = this.state;
-    this.props.submitRecipe(recipe);
+    const test = this.state;
+    this.props.addTest(test);
    
     // this.props.history.push("/");
   }
   
   
-  setMealTypes(arrayOfOptions) {
-    const arr = [];
-    console.log(arrayOfOptions);
-    for (let i = 0; i < arrayOfOptions.length; i++) {
-      arr.push(arrayOfOptions[i].text);
-    }
-    this.setState({
-      mTypes: arr
-    });
+  // setMealTypes(arrayOfOptions) {
+  //   const arr = [];
+  //   console.log(arrayOfOptions);
+  //   for (let i = 0; i < arrayOfOptions.length; i++) {
+  //     arr.push(arrayOfOptions[i].text);
+  //   }
+  //   this.setState({
+  //     mTypes: arr
+  //   });
   
-  }
+  // }
 
   erase() {
     this.setState(this.baseState);
@@ -64,34 +64,34 @@ export default class RecipeForm extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <h1>Create Recipe</h1>
+            <h1>Entrance Exam</h1>
             
                   
             <div>
-                Recipe Title: 
+                Test 1: 
                 <input value={this.state.title} onChange={(e) => {
                   
                   this.setState({
                     title: e.target.value 
                   });
-                  console.log(this.state.title);
+                  console.log(this.state.test1);
                 } 
                 } />
             </div>
 
             <div>
-                Number of Servings: 
+                test2: 
                   <input value={this.state.servings} onChange={(e) => {
                     this.setState({
                     
-                      servings: e.target.value
+                      test2: e.target.value
                       
                     });
                   
                   }} />
             </div>
             <div>
-                Vegitarian: 
+                boolean: 
                   <select value={this.state.veg} onChange={(e) => {
                     this.setState({
                       veg: e.target.value
@@ -103,11 +103,11 @@ export default class RecipeForm extends Component {
                   </select>
             </div>
             <div>
-                Vegan: 
+                boolean2: 
                   <select value={this.state.vegan} onChange={(e) => {
                     this.setState({
                       
-                      vegan: e.target.value
+                      boolean2: e.target.value
                       
                     });
                   }}>
@@ -116,11 +116,11 @@ export default class RecipeForm extends Component {
                   </select>
             </div>
             <div>
-                  Gluten Free: 
+                  boolean3: 
                     <select value={this.state.gf} onChange={(e) => {
                       this.setState({
                         
-                        gf: e.target.value
+                        boolean3: e.target.value
                         
                       });
                     }}>
@@ -128,11 +128,11 @@ export default class RecipeForm extends Component {
                       <option value="true">Yes!</option>
                     </select>
             </div>
-            <div>
+            {/* <div>
                   Meal Types:
-                  <MealTypes value={this.state.mTypes} setMealTypes={this.setMealTypes} />
+                  <MealTypes value={this.state.mTypes} setMealTypes={this.setMealTypes} /> */}
 
-              {/* <select label="mealTypes" name="mealTypes[]" id="mealTypes" multiple 
+            {/* <select label="mealTypes" name="mealTypes[]" id="mealTypes" multiple 
                     onClick={(e) => {
                       console.log(e.target.value);
                       const types = document.getElementById("mealTypes").selectedOptions;
@@ -155,54 +155,48 @@ export default class RecipeForm extends Component {
                     <option value="dessert">Dessert</option>
                     <option value="snack">Snack</option>
                   </select>  */}
-            </div>
-            <div>
-              Ingredients 
-              <textarea value={this.state.ingredients} 
+          </div>
+          <div>
+              Typing Test
+              <textarea value={this.state.typeingTest} 
                 onChange={e => {
-                  const ingredients = e.target.value;
+                  const typeingTest = e.target.value;
                   this.setState({
                   
-                    ingredients
+                    typeingTest
                     
                   });
 
                 }} />
-                Instructions
-              <textarea value={this.state.instructions}
+                essay
+              <textarea value={this.state.essay}
                 onChange={(e) => {
-                  const instructions = e.target.value;
+                  const essay = e.target.value;
                   this.setState({  
                       
-                    instructions
+                    essay
                     
                   });
                 }} />
-              <button onClick={this.erase} value="Clear Recipe" />
-              <input type="submit" value="Submit Recipe" />
+            <button onClick={this.erase} value="Clear Test" />
+            <input type="submit" value="Submit Test" />
           
-
-            </div>
-        
-          
-      
 
           </div>
-          {/* <AddIngredients ingredients={this.state.ingredients} /> */}
         </form>
-
+          
       </div>
+
   
-    )
-  ;
+    );
   }
 }
 
-RecipeForm.propTypes = {
+TestForm.propTypes = {
   handleSubmit: PropTypes.func,  
-  submitRecipe: PropTypes.func,
+  submitTest: PropTypes.func,
   history: PropTypes.object,
-  recipe: PropTypes.object
+  test: PropTypes.object
   
 
 };
