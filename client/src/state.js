@@ -1,5 +1,5 @@
 export default {
-  tests: [],
-  getTestDone: {}
+  getTestsDone: []
+  // getTestDone: {}
 
 };

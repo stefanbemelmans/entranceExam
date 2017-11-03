@@ -10,7 +10,7 @@ export default class CreateRecipe extends Component {
     this.subTest = this.subTest.bind(this);   
   }
 
-  addTest(test) {
+  subTest(test) {
     console.log(test);
     this.props.subTest(test);
     this.props.getTests();

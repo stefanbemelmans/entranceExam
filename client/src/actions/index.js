@@ -4,11 +4,11 @@ export function getTests() {
       .then( (response) => {
         return response.json();
       }).then((tests) => {
-        dispatch(testsLoaded(tests));
+        dispatch(getTestsDone(tests));
       });
   };
 }
-function testsLoaded(tests) {
+function getTestsDone(tests) {
   return {
     type: "TESTS_LOADED",
     value: tests
