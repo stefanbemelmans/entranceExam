@@ -24,18 +24,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
+
+        <EntranceExam />
+        {/* <BrowserRouter>
           <div>
-            {/* <EditRecipe /> */}
+            {/* <EditRecipe /> 
             <Switch>
               {/*  <Route path="/createRecipe/" component={CreateRecipe} /> */}
               {/* <Route exact path="/edit/:id" component={EditRecipe} /> */}
-              {/* <Route path="/entrance/:id" component={TestDetails} /> */}
+              {/* <Route path="/entrance/:id" component={TestDetails} />
               <Route path="/" component={EntranceExam} />
             </Switch>
             <Link to="/">Recipe List!</Link>
           </div>
-        </BrowserRouter>
+        </BrowserRouter> */}
 
       </div>
     );

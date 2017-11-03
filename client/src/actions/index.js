@@ -1,20 +1,20 @@
-export function loadMyRecipes() {
+export function getTests() {
   return function (dispatch) {
-    fetch("/recipes")
+    fetch("/tests")
       .then( (response) => {
         return response.json();
-      }).then((recipes) => {
-        dispatch(myRecipesLoaded(recipes));
+      }).then((tests) => {
+        dispatch(testsLoaded(tests));
       });
   };
 }
-function myRecipesLoaded(recipes) {
+function testsLoaded(tests) {
   return {
-    type: "MY_RECIPES_LOADED",
-    value: recipes
+    type: "TESTS_LOADED",
+    value: tests
   };
 }
-// export function getRecipe(id) {
+// exptrt function getRecipe(id) {
 //   return function (dispatch) {
 //     fetch("/recipes/" + id)
 //       .then( (response) => {
@@ -31,7 +31,7 @@ function myRecipesLoaded(recipes) {
 //   };
 // }
 
-export function addTest(test) {
+export function subTest(test) {
   return function (dispatch) {
     fetch("/tests", {
       method: "POST",
@@ -39,7 +39,7 @@ export function addTest(test) {
       body: JSON.stringify(test)
     })
     .then(() => {
-      return dispatch(loadMyRecipes());
+      return dispatch(getTests());
     });
   };
 }

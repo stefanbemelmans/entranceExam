@@ -36,7 +36,7 @@ export default class TestList extends Component {
   }
 }
 
-TestsList.propTypes = {
+TestList.propTypes = {
   tests: PropTypes.array
 }; 
 

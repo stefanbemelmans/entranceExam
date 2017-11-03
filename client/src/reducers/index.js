@@ -9,7 +9,7 @@ function getTests(state = [], action) {
 
 
 function getTestsDone(state = {}, action) {
-  if (action.type === "GET_TESTS_DONE") {
+  if (action.type === "TESTS_LOADED") {
     return action.value;
   }
   return state;

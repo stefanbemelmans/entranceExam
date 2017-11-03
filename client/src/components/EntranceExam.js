@@ -7,18 +7,18 @@ import TestForm from "./TestForm";
 export default class CreateRecipe extends Component {
   constructor(props) {
     super(props);
-    this.addTest = this.addTest.bind(this);   
+    this.subTest = this.subTest.bind(this);   
   }
 
   addTest(test) {
     console.log(test);
-    this.props.addTest(test);
-    this.props.loadTests();
+    this.props.subTest(test);
+    this.props.getTests();
     //this.props.history.push("/");
   }
 
   render() {
-    return <TestForm addTest={this.addTest} test={{}} />;
+    return <TestForm subTest={this.subTest} test={{}} />;
   
   }
 }
