@@ -9,14 +9,16 @@ export default class TestForm extends Component {
   
     this.state = 
     {
-    
+      fName: "",
+      lName: "",
+      phone: "",
       test1: "",
       test2: "",
       boolean: false,
       boolean2: false,
       boolean3: false,
       // mTypes: [],
-      typingTest: {},
+      typingTest: "",
       essay: ""
     };
 
@@ -28,13 +30,13 @@ export default class TestForm extends Component {
   }
 
   componentDidMount() {
-    this.setState(this.props.recipe);
+    this.setState(this.props.test);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const test = this.state;
-    this.props.addTest(test);
+    this.props.subTest(test);
    
     // this.props.history.push("/");
   }
@@ -65,14 +67,45 @@ export default class TestForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <h1>Entrance Exam</h1>
+            <div>
+                First Name: 
+                  <input value={this.state.fName} onChange={(e) => {
+                    
+                    this.setState({
+                      fName: e.target.value 
+                    });
+                    console.log(this.state.fName);
+                  } 
+                  } />
+
+                Last Name: 
+                  <input value={this.state.lName} onChange={(e) => {
+                    
+                    this.setState({
+                      lName: e.target.value 
+                    });
+                    console.log(this.state.lName);
+                  } 
+                  } />
+
+                Phone: 
+                  <input value={this.state.phone} onChange={(e) => {
+                    
+                    this.setState({
+                      phone: e.target.value 
+                    });
+                    console.log(this.state.phone);
+                  } 
+                  } />
+            </div>
             
                   
             <div>
                 Test 1: 
-                <input value={this.state.title} onChange={(e) => {
+                <input value={this.state.test1} onChange={(e) => {
                   
                   this.setState({
-                    title: e.target.value 
+                    test1: e.target.value 
                   });
                   console.log(this.state.test1);
                 } 
@@ -158,12 +191,12 @@ export default class TestForm extends Component {
           </div>
           <div>
               Typing Test
-              <textarea value={this.state.typeingTest} 
+              <textarea value={this.state.typingTest} 
                 onChange={e => {
-                  const typeingTest = e.target.value;
+                  const typingTest = e.target.value;
                   this.setState({
                   
-                    typeingTest
+                    typingTest 
                     
                   });
 

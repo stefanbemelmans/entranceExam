@@ -1,15 +1,15 @@
 import { connect } from "react-redux";
 import EntranceExam from "../components/EntranceExam";
-import {addTest,loadTests} from "../actions";
+import {subTest,getTests} from "../actions";
 
 function mapDispatchToProps(dispatch) {
   return { 
-    addTest(test) {
-      dispatch(addTest(test));
+    subTest(test) {
+      dispatch(subTest(test));
       
     },
-    loadTests() {
-      dispatch(loadTests());
+    getTests() {
+      dispatch(getTests());
     },
 
     // setMealTypes(arrayOfOptions) {
