@@ -33,7 +33,7 @@ function getTestsDone(tests) {
 
 export function subTest(test) {
   return function (dispatch) {
-    fetch("/entrance", {
+    fetch("/tests", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(test)
