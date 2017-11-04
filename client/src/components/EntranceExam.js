@@ -4,7 +4,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import TestForm from "./TestForm";
 
-export default class CreateRecipe extends Component {
+export default class EntranceExam extends Component {
   constructor(props) {
     super(props);
     this.subTest = this.subTest.bind(this);   

@@ -25,19 +25,19 @@ class App extends Component {
     return (
       <div>
 
-        <EntranceExam />
-        {/* <BrowserRouter>
+        
+        <BrowserRouter>
           <div>
-            {/* <EditRecipe /> 
+             
             <Switch>
               {/*  <Route path="/createRecipe/" component={CreateRecipe} /> */}
               {/* <Route exact path="/edit/:id" component={EditRecipe} /> */}
-              {/* <Route path="/entrance/:id" component={TestDetails} />
+              {/* <Route path="/entrance/:id" component={TestDetails} /> */}
               <Route path="/" component={EntranceExam} />
             </Switch>
-            <Link to="/">Recipe List!</Link>
+            {/* <Link to="/">Recipe List!</Link> */}
           </div>
-        </BrowserRouter> */}
+        </BrowserRouter> 
 
       </div>
     );
