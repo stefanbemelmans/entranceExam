@@ -1,6 +1,6 @@
 export function getTests() {
   return function (dispatch) {
-    fetch("/entrance")
+    fetch("/tests")
       .then( (response) => {
         return response.json();
       }).then((tests) => {
