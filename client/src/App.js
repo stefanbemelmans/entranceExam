@@ -18,9 +18,9 @@ class App extends Component {
   constructor() {
     super();
   }
-  componentDidMount() {
-    this.props.loadMyRecipes();
-  }
+  // componentDidMount() {
+  //   this.props.loadMyRecipes();
+  // }
   render() {
     return (
       <div>

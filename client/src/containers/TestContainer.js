@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import {deleteTest, loadTests} from "../actions";
+import {deleteTest, getTests} from "../actions";
 import Test from "../components/TestForm";
 
 function mapDispatchToProps(dispatch) {
@@ -7,8 +7,8 @@ function mapDispatchToProps(dispatch) {
     deleteTest(id) {
       dispatch(deleteTest(id));
     },
-    loadTests() {
-      dispatch(loadTests());
+    getTests() {
+      dispatch(getTests());
     }
   };
 }
