@@ -22,12 +22,12 @@ class Test extends Component {
     return (
       <div>
         <h3 className="TestResults">
-          <Link to={"/entrance/" + this.props.test._id}>{this.props.test.fName }</Link></h3>
+          <Link to={"/tests/" + this.props.test._id}>{this.props.test.fName }</Link></h3>
         <img src="https://thecatapi.com/api/images/get?format=src&size=small" />
         <h2>Test Results!</h2>
         <ul>
           <li>{fName}</li>
-          <li>{lName>}</li>
+          <li>{lName}</li>
           <li>{phone}</li>
         </ul>
 

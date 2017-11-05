@@ -1,19 +1,19 @@
 import resultModel from "../models/resultModel";
 
-// export function list(request, response) {
-//   resultModel.find({}).exec().then(
-//     result => {
-//       return response.json(result);
-//     }
-//   );
-// }
+export function list(request, response) {
+  resultModel.find({}).exec().then(
+    result => {
+      return response.json(result);
+    }
+  );
+}
 
-// export function show(request, response) {
-//   resultModel.findById(request.params.id).exec().then(
-//     result => {
-//       return response.json(result);
-//     });
-// }
+export function show(request, response) {
+  resultModel.findById(request.params.id).exec().then(
+    result => {
+      return response.json(result);
+    });
+}
 // .body is the whole thing. (thanks Jon!)
 export function create(request, response) {
   const result = new resultModel({
