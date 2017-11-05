@@ -35,7 +35,8 @@ class App extends Component {
               {/* <Route path="/entrance/:id" component={TestDetails} /> */}
               <Route path="/" component={EntranceExam} />
             </Switch>
-            {/* <Link to="/">Recipe List!</Link> */}
+            
+            {<Link to="/results">Test Results</Link>}
           </div>
         </BrowserRouter> 
 

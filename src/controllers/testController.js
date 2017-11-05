@@ -30,7 +30,7 @@ export function create(request, response) {
   });
   result.save()
     .then(() => {
-      console.log(response);
+      console.log("I saved new results");
       return response.json(result);
  
     });
