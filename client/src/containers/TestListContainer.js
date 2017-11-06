@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import TestList from "../components/TestList";
-import {deleteTest} from "../actions";
+import {deleteTest, getTests} from "../actions";
 import {withRouter} from "react-router-dom";
 
 function mapStateToProps(state) {
   return {
-    tests: state.tests
+    tests: state.getTestsDone
   };
 }
 function mapDispatchToProps(dispatch) {
@@ -13,6 +13,9 @@ function mapDispatchToProps(dispatch) {
     deleteTest(id) {
       const action = deleteTest(id);
       dispatch(action);
+    },
+    getTests() {
+      dispatch(getTests());
     }
   };
 }

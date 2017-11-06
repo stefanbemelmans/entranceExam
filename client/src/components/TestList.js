@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 // import Link from "react-router-dom";
-import Test from "../containers/TestContainer";
+import Test from "../components/Test";
 import PropTypes from "prop-types";
 
 export default class TestList extends Component {
@@ -8,7 +8,9 @@ export default class TestList extends Component {
     super(props);
 
   }
-  
+  componentDidMount() {
+    this.props.getTests();
+  }
   render() {   
     const tests = this.props.tests.map(function (test, i) {
     

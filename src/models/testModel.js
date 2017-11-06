@@ -54,4 +54,4 @@ const schema = new mongoose.Schema({
 
 });
 
-export default mongoose.model("resultModel", schema);
+export default mongoose.model("test", schema);

@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import EntranceExam from "../components/EntranceExam";
-import {subTest,getTests} from "../actions";
+import {submitTest,getTests} from "../actions";
 
 function mapDispatchToProps(dispatch) {
   return { 
-    subTest(test) {
-      dispatch(subTest(test));
+    submitTest(test) {
+      dispatch(submitTest(test));
       
     },
     getTests() {

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-// import MealTypes from "./MealTypes";
-// import {withRouter} from "react-router-dom";
+//import MealTypes from "./MealTypes";
+import {withRouter} from "react-router-dom";
 
 export default class TestForm extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ export default class TestForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const test = this.state;
-    this.props.subTest(test);
+    this.props.submitTest(test);
    
     // this.props.history.push("/");
   }

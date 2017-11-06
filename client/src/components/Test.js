@@ -9,7 +9,7 @@ class Test extends Component {
   }
  
   deleteTest() {
-    this.props.deleteTest(this.props.rec._id);
+    this.props.deleteTest(this.props.test._id);
     this.props.getTests();
     
   }
@@ -47,4 +47,4 @@ Test.propTypes = {
 
 };
 
-export default withRouter(Recipe);
+export default withRouter(Test);

@@ -1,24 +1,23 @@
 import React, {Component} from "react";
 // import AddIngredients from "./AddIngredients";
-// import {withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import PropTypes from "prop-types";
 import TestForm from "./TestForm";
 
 export default class EntranceExam extends Component {
   constructor(props) {
     super(props);
-    this.subTest = this.subTest.bind(this);   
+    this.submitTest = this.submitTest.bind(this);   
   }
-
-  subTest(test) {
+  submitTest(test) {
     console.log(test);
-    this.props.subTest(test);
+    this.props.submitTest(test);
     this.props.getTests();
-    //this.props.history.push("/");
+    // this.props.history.push("/");
   }
 
   render() {
-    return <TestForm subTest={this.subTest} test={{}} />;
+    return <TestForm submitTest={this.props.submitTest} test={{}} />;
   
   }
 }

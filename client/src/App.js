@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EntranceExam from "./containers/EntranceExamContainer";
-import TestList from "./containers/TestListContainer";
+import testList from "./containers/TestListContainer";
 // import RecipeDetails from "./containers/RecipeDetailsContainer";
 // import EditRecipe from "./containers/EditRecipeContainer";
 import PropTypes from "prop-types";
@@ -18,27 +18,24 @@ class App extends Component {
   constructor() {
     super();
   }
-  // componentDidMount() {
-  //   this.props.loadMyRecipes();
-  // }
+  
   render() {
     return (
       <div>
-
-        
         <BrowserRouter>
           <div>
-             
+            {/* <EditRecipe /> */}
             <Switch>
-              {/*  <Route path="/createRecipe/" component={CreateRecipe} /> */}
+              <Route path="/test" component={testList} /> 
               {/* <Route exact path="/edit/:id" component={EditRecipe} /> */}
-              {/* <Route path="/entrance/:id" component={TestDetails} /> */}
+              {/* <Route path="/tests/:id" component={RecipeDetails} /> */}
               <Route path="/" component={EntranceExam} />
             </Switch>
-            
-            {<Link to="/results">Test Results</Link>}
+           
+            <Link to="/test">test List!</Link><br />
+            <Link to="/">take test!!</Link>
           </div>
-        </BrowserRouter> 
+        </BrowserRouter>
 
       </div>
     );
