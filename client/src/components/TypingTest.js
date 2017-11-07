@@ -12,7 +12,8 @@ export default class TypingTest extends Component {
       result: ""
     };
     this.baseState = this.state;
-   // this.editRecipe = this.editRecipe.bind(this);
+    this.startTimer = this.startTimer.bind(this);
+    this.getResult = this.getResult.bind(this);
   }
   // componentDidMount() {
   //   const recId = this.props.match.params.id;
@@ -24,26 +25,40 @@ export default class TypingTest extends Component {
    
   // }
  
-  // editRecipe(recipe) {  
-  //   console.log(this.props);
+  startTimer(val) {  
+    console.log(val);
+    if (val === 13) {
+      console.log("yaya");
+      setTimeout(this.getResult, 5000);
+      console.log("timerSTarted");
+    }
+  }
 
+  getResult(){
+    let result = this.state.result;
+    result = result.split(" ");
+    console.log(result);
+  }
   //   this.props.updateRecipe(recipe);
   //   this.props.loadMyRecipes();
   //   this.props.history.push("/");
   // }
 
   render() {
+    
    
     return (
       <div>
-        <input type="text" value={this.state.result} onChange={(e) => {
+        <textarea value={this.state.result} onChange={(e) => {
                     
           this.setState({
             result: e.target.value 
           });
           console.log(this.state.result);
         }
-                 } /> 
+        } onKeyPress={(e) => this.startTimer(e.charCode)} 
+                   
+                  /> 
       
       </div>);
       /* //   //<RecipeForm submitRecipe={this.editRecipe} recipe={this.props.recipes.find(x => x._id === this.props.match.params.id)} />
