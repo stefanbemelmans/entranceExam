@@ -12,7 +12,10 @@ export default class TypingTest extends Component {
       result: ""
     };
     this.baseState = this.state;
-   // this.editRecipe = this.editRecipe.bind(this);
+    this.startTimer = this.startTimer.bind(this);
+    this.getResult = this.getResult.bind(this);
+    this.paragraph = "Follow any instructions the employer provides—that’s part of the assessment process, says Diane Samuels, a career coach and image consultant in New York City. 'If you have any concerns, it’s best to ask questions,' she says. 'It shows that you are proactive in seeking advice before moving too far ahead with an assignment, which in a real-life job situation can save time, money and energy.'"
+    
   }
   // componentDidMount() {
   //   const recId = this.props.match.params.id;
@@ -23,21 +26,41 @@ export default class TypingTest extends Component {
   //   console.log(this.state.recipe); 
    
   // }
- 
-  // editRecipe(recipe) {  
-  //   console.log(this.props);
+  splitParagraph(para) {
+    let splitPar = para.split(" ");
+    console.log(splitPar);
+  }
 
+  startTimer(val) {  
+    console.log(val);
+    if (val === 13) {
+      console.log("yaya");
+      setTimeout(this.getResult, 10000);
+      console.log("timerSTarted");
+    }
+  }
+
+  getResult() {
+    let result = this.state.result;
+    result = result.split(" ");
+    console.log(result.length);
+  }
   //   this.props.updateRecipe(recipe);
   //   this.props.loadMyRecipes();
   //   this.props.history.push("/");
   // }
 
   render() {
-   
+    this.splitParagraph(this.paragraph);
     return (
-      <div className="typeThis">
-      </div>
+     
+      
       <div>
+        <div className="typeThis">
+          <p>Type this: </p>
+          <h3>{this.paragraph}</h3>
+        </div>
+
         <textarea value={this.state.result} onChange={(e) => {
                     
           this.setState({
@@ -45,7 +68,9 @@ export default class TypingTest extends Component {
           });
           console.log(this.state.result);
         }
-                 } /> 
+        } onKeyPress={(e) => this.startTimer(e.charCode)} 
+                   
+                  /> 
       
       </div>);
       /* //   //<RecipeForm submitRecipe={this.editRecipe} recipe={this.props.recipes.find(x => x._id === this.props.match.params.id)} />
