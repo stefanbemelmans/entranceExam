@@ -35,8 +35,10 @@ export default class TypingTest extends Component {
   render() {
    
     return (
+      <div className="typeThis">
+      </div>
       <div>
-        <input type="text" value={this.state.result} onChange={(e) => {
+        <textarea value={this.state.result} onChange={(e) => {
                     
           this.setState({
             result: e.target.value 
