@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import EntranceExam from "./containers/EntranceExamContainer";
 import testList from "./containers/TestListContainer";
 // import RecipeDetails from "./containers/RecipeDetailsContainer";
-// import EditRecipe from "./containers/EditRecipeContainer";
+import TypingTest from "./components/TypingTest";
 import PropTypes from "prop-types";
 // impor Link from 
 import "./App.css";
@@ -27,7 +27,7 @@ class App extends Component {
             {/* <EditRecipe /> */}
             <Switch>
               <Route path="/test" component={testList} /> 
-              {/* <Route exact path="/edit/:id" component={EditRecipe} /> */}
+              <Route exact path="/type" component={TypingTest} />
               {/* <Route path="/tests/:id" component={RecipeDetails} /> */}
               <Route path="/" component={EntranceExam} />
             </Switch>
