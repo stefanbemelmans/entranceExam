@@ -19,10 +19,6 @@ export default class TypingTest extends Component {
     
   }
 
-  let str = "l";
-  let str1 = "l";
-  
-  console.log(str===str1)
   
   //control paragrph
   let paragraph = "Type this sentence.";
@@ -39,19 +35,39 @@ export default class TypingTest extends Component {
     let badChar="";
     parCharAr = parWd.split("");
     testCharAr = testWd.split("");
+    parLength = parWd.length;
+    testLength = testWd.length;
     console.log(parCharAr, testCharAr);
     
-    for(let j = 0; j < parWd.length; j ++){
-      if(parCharAr[j] === testCharAr[j]){
+    if(testLength > parLength) {
+      badChar += testCharAr.slice(parLength).join("");
+      console.log(badChar)
+    }
+    
+    if(testLength < parLength) {
+      badChar += parCharAr.slice(testLength)
+    }
+    for(let j = 0; j < parLength; j ++){
+      
+      if(testCharAr[j] === parCharAr[j]){
         console.log('yup');
       }
-      else{
+      if(testCharAr[j] !== parCharAr){
+        badChar += testCharAr[j];
         console.log('nope');
-          badChar+=parCharAr[j];
+        console.log(badChar);
+        
+        
       }
+      else{
+        
+          badChar+=testCharAr[j];
+      }
+    }
+     
       console.log(badChar);
+   console.log("you wrote "+ testWd+" instead of "+ parWd);
   
-  }
   }
   compare(splitTester[0], splitPar[0]);
   
