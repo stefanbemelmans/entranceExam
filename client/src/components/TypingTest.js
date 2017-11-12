@@ -24,16 +24,17 @@ export default class TypingTest extends Component {
   
   console.log(str===str1)
   
+  //control paragrph
   let paragraph = "Type this sentence.";
   
   let splitPar = paragraph.split(" ");
   console.log(splitPar)
-  
+  //input paragrahp
   let tester = "sepe this sentence.";
   console.log(tester === paragraph)
   let splitTester = tester.split(" ");
   console.log(splitTester);
-  
+  // if test word doesn't equal control word go to char comp and record wrong chars.
   function compare(parWd, testWd) {
     let badChar="";
     parCharAr = parWd.split("");
