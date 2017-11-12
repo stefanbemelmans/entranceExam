@@ -22,7 +22,9 @@ export default class TypingTest extends Component {
     
   }
 
-  
+  stopTyping() {
+    document.alert("Stop Typing!");
+  }
   // compare strings word for word
  
   compStrings() {
