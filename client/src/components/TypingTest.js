@@ -23,7 +23,7 @@ export default class TypingTest extends Component {
   }
 
   
-  // control paragrph
+  // compare strings word for word
  
   compStrings(paragraph, testString) {
     const badWords = this.state.badWords;
@@ -39,9 +39,8 @@ export default class TypingTest extends Component {
     for (let i = 0; i < splitTester.length; i++) {
       if (splitTester[i] === splitPar[i]) {
         console.log("yay");
-      }
-      else {
-        badWords.push(splitTester[i])
+      } else {
+        badWords.push(splitTester[i]);
         this.compWords(splitPar[i], splitTester[i]);
       }
     }
@@ -52,54 +51,50 @@ export default class TypingTest extends Component {
     const testCharAr = testWd.split("");
     const parLength = parWd.length;
     const testLength = testWd.length;
-   
+    let badChars = this.state.badChars;
     console.log(parCharAr, testCharAr);
     
     if (testLength > parLength) {
-      badChar += testCharAr.slice(parLength).join("");
-      console.log(badChar);
+      badChars += testCharAr.slice(parLength).join("");
+      console.log(badChars);
     }
     
     if (testLength < parLength) {
-      badChar += parCharAr.slice(testLength);
+      badChars += parCharAr.slice(testLength);
     }
-    for (let j = 0; j < parLength; j++) {
+    for (let j = 0; j < testLength; j++) {
       
       if (testCharAr[j] === parCharAr[j]) {
         console.log("yup");
       }
       if (testCharAr[j] !== parCharAr) {
-        badChar += testCharAr[j];
+        badChars += testCharAr[j];
         console.log("nope");
-        console.log(badChar);
+        console.log(badChars);
         
         
       } else {
         
-        badChar += testCharAr[j];
+        badChars += testCharAr[j];
       }
     }
      
-    console.log(badChar);
+    console.log(badChars);
     console.log("you wrote " + testWd + " instead of " + parWd);
   
   }
   
-  
-  
-  
- 
-
-  // startTimer(val) {  
-  //   console.log(val);
-  //   if (val === 13) {
-  //     console.log("yaya");
-  //     setTimeout(this.getResult, 10000);
-  //     console.log("timerSTarted");
-  //     // count keystrokes on window while timer is running
-  //     // count bakspaces?
+  startTimer(val) {  
+    console.log(val);
+    if (val === 13) {
+      console.log("yaya");
+      setTimeout(this.compStrings(this.state.pararaph, this.state.tester), 10000);
+      console.log("timerSTarted");
+      // count keystrokes on window while timer is running
+      // count bakspaces?
       
-
+    }
+  }
   render() {
    
    
@@ -116,9 +111,9 @@ export default class TypingTest extends Component {
         <textarea value={this.state.result} onChange={(e) => {
                     
           this.setState({
-            result: e.target.value 
+            tester: e.target.value 
           });
-          console.log(this.state.result);
+          console.log(this.state.tester);
 
         }
         } onKeyPress={(e) => this.startTimer(e.charCode)} 
