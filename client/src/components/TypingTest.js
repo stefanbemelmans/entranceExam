@@ -9,87 +9,86 @@ export default class TypingTest extends Component {
     super(props);
     this.state = 
     {
-      result: ""
+      tester: "",
+      pararaph: "Type this sentence ExaCtly",
+      badWords: [],
+      badChars: ""
     };
     this.baseState = this.state;
     this.startTimer = this.startTimer.bind(this);
-    this.getResult = this.getResult.bind(this);
-    this.paragraph = "Follow any instructions".split(""); 
-    //the employer provides—that’s part of the assessment process, says Diane Samuels, a career coach and image consultant in New York City. 'If you have any concerns, it’s best to ask questions,' she says. 'It shows that you are proactive in seeking advice before moving too far ahead with an assignment, which in a real-life job situation can save time, money and energy.'"
+    this.compare = this.compare.bind(this);
+    // optional longer string for paragraph
+    // the employer provides—that’s part of the assessment process, says Diane Samuels, a career coach and image consultant in New York City. 'If you have any concerns, it’s best to ask questions,' she says. 'It shows that you are proactive in seeking advice before moving too far ahead with an assignment, which in a real-life job situation can save time, money and energy.'"
     
   }
 
   
-  //control paragrph
-  let paragraph = "Type this sentence.";
-  
-  let splitPar = paragraph.split(" ");
-  console.log(splitPar)
-  //input paragrahp
-  let tester = "sepe this sentence.";
-  console.log(tester === paragraph)
-  let splitTester = tester.split(" ");
-  console.log(splitTester);
+  // control paragrph
+ 
+  compStrings(paragraph, testString) {
+    const badWords = this.state.badWords;
+    
+    const splitPar = this.state.paragraph.split(" ");
+    console.log(splitPar);
+    // input paragrahp
+    
+    const splitTester = this.state.tester.split(" ");
+    console.log(splitTester);
   // if test word doesn't equal control word go to char comp and record wrong chars.
-  function compare(parWd, testWd) {
-    let badChar="";
-    parCharAr = parWd.split("");
-    testCharAr = testWd.split("");
-    parLength = parWd.length;
-    testLength = testWd.length;
+    
+    for (let i = 0; i < splitTester.length; i++) {
+      if (splitTester[i] === splitPar[i]) {
+        console.log("yay");
+      }
+      else {
+        badWords.push(splitTester[i])
+        this.compWords(splitPar[i], splitTester[i]);
+      }
+    }
+
+  }
+  compWords(parWd, testWd) {
+    const parCharAr = parWd.split("");
+    const testCharAr = testWd.split("");
+    const parLength = parWd.length;
+    const testLength = testWd.length;
+   
     console.log(parCharAr, testCharAr);
     
-    if(testLength > parLength) {
+    if (testLength > parLength) {
       badChar += testCharAr.slice(parLength).join("");
-      console.log(badChar)
+      console.log(badChar);
     }
     
-    if(testLength < parLength) {
-      badChar += parCharAr.slice(testLength)
+    if (testLength < parLength) {
+      badChar += parCharAr.slice(testLength);
     }
-    for(let j = 0; j < parLength; j ++){
+    for (let j = 0; j < parLength; j++) {
       
-      if(testCharAr[j] === parCharAr[j]){
-        console.log('yup');
+      if (testCharAr[j] === parCharAr[j]) {
+        console.log("yup");
       }
-      if(testCharAr[j] !== parCharAr){
+      if (testCharAr[j] !== parCharAr) {
         badChar += testCharAr[j];
-        console.log('nope');
+        console.log("nope");
         console.log(badChar);
         
         
-      }
-      else{
+      } else {
         
-          badChar+=testCharAr[j];
+        badChar += testCharAr[j];
       }
     }
      
-      console.log(badChar);
-   console.log("you wrote "+ testWd+" instead of "+ parWd);
+    console.log(badChar);
+    console.log("you wrote " + testWd + " instead of " + parWd);
   
   }
-  compare(splitTester[0], splitPar[0]);
   
-  for(let i = 0; i<splitTester.length; i ++) {
-    if (splitTester[i] === splitPar[i]){
-      console.log("yay");
-    }
-  }
   
-  // componentDidMount() {
-  //   const recId = this.props.match.params.id;
-  //   this.setState({
-  //     recipe: this.props.recipes.find(x => x._id === recId)
-      
-  //   });     
-  //   console.log(this.state.recipe); 
-   
-  // }
-  splitParagraph(para) {
-    let splitPar = para.split(" ");
-    console.log(splitPar);
-  }
+  
+  
+ 
 
   // startTimer(val) {  
   //   console.log(val);
@@ -101,23 +100,9 @@ export default class TypingTest extends Component {
   //     // count bakspaces?
       
 
-  //     }}
-  //   }
-  
-
-  getResult() {
-    let result = this.state.result;
-    result = result.split(" ");
-    console.log(result.length);
-  }
-  //   this.props.updateRecipe(recipe);
-  //   this.props.loadMyRecipes();
-  //   this.props.history.push("/");
-  // }
-
   render() {
    
-    this.splitParagraph(this.paragraph);
+   
    
     return (
      
