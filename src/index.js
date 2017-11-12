@@ -7,7 +7,11 @@ import testRoutes from "./routes/testRoutes";
 // mongodb://stack:stack@ds241895.mlab.com:41895/entrance
 mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://stack:stack@ds241895.mlab.com:41895/entrance");
+mongoose.connect("mongodb://stack:stack@ds241895.mlab.com:41895/entrance",
+{
+  useMongoClient: true
+}
+);
 const app = express();
 app.use(bodyParser.json());
 app.use(testRoutes);
