@@ -103,8 +103,10 @@ export default class TypingTest extends Component {
     this.splitParagraph(this.paragraph);
    
     return (
+     
+      
       <div>
-        <div>
+        <div className="typeThis">
           <p>Type this: </p>
           <h3>{this.paragraph}</h3>
         </div>
