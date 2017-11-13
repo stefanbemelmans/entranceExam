@@ -46,7 +46,7 @@ export default class TypingTest extends Component {
         this.compWords(splitPar[i], splitTester[i]);
       }
     }
-
+    return badWords.length === 0 ? true : badWords;
   }
   compWords(parWd, testWd) {
     const parCharAr = parWd.split("");
@@ -66,22 +66,23 @@ export default class TypingTest extends Component {
     }
     for (let j = 0; j < testLength; j++) {
       
+      if (testCharAr[j] !== parCharAr[j]) {
+        badChars += testCharAr[j];
+        console.log(testCharAr[j] + " tester and para: " + parCharAr[j]);
+        console.log("nope");
+        console.log(badChars);
+      }
+
       if (testCharAr[j] === parCharAr[j]) {
         console.log("yup");
       }
-      if (testCharAr[j] !== parCharAr) {
-        badChars += testCharAr[j];
-        console.log("nope");
-        console.log(badChars);
+      
         
-        
-      } else {
-        
-        badChars += testCharAr[j];
-      }
+      
     }
      
     console.log(badChars);
+    
     console.log("you wrote " + testWd + " instead of " + parWd);
   
   }
@@ -90,7 +91,8 @@ export default class TypingTest extends Component {
     console.log(val);
     if (val === 13) {
       console.log("yaya");
-      setTimeout(this.compStrings, 10000);
+      // setTimeout(this.compStrings, 10000);
+      this.compStrings();
       console.log("timerSTarted");
       // count keystrokes on window while timer is running
       // count bakspaces?
