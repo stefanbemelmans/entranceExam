@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-//import MealTypes from "./MealTypes";
+// import MealTypes from "./MealTypes";
 import {withRouter} from "react-router-dom";
 
 export default class TestForm extends Component {
@@ -41,18 +41,21 @@ export default class TestForm extends Component {
     // this.props.history.push("/");
   }
   
+  setTest1(e) {
+    
+    console.log(e.target.value, e.target.name);
+    this.setState({
+      test1: e.target.value
+    });
+  }
   
-  // setMealTypes(arrayOfOptions) {
-  //   const arr = [];
-  //   console.log(arrayOfOptions);
-  //   for (let i = 0; i < arrayOfOptions.length; i++) {
-  //     arr.push(arrayOfOptions[i].text);
-  //   }
-  //   this.setState({
-  //     mTypes: arr
-  //   });
-  
-  // }
+  setTest2(e) { 
+    console.log(e.target.value, e.target.name);
+    this.setState({
+      test2: e.target.value
+    });
+  }
+ 
 
   erase() {
     this.setState(this.baseState);
@@ -66,7 +69,10 @@ export default class TestForm extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <h1>Entrance Exam</h1>
+            <h1>Austin Coding Academy Admissions Exam</h1>
+            <h3>Please complete the following Admissions exam to be considered for acceptance into Austin Coding Academy. 
+              </h3>
+
             <div>
                 First Name: 
                   <input value={this.state.fName} onChange={(e) => {
@@ -101,96 +107,40 @@ export default class TestForm extends Component {
             
                   
             <div>
-                Test 1: 
-                <input value={this.state.test1} onChange={(e) => {
-                  
-                  this.setState({
-                    test1: e.target.value 
-                  });
-                  console.log(this.state.test1);
-                } 
-                } />
-            </div>
+              <div className="test1">
+                <p>Jamie’s cellular-phone company offers a plan that allows 300 minutes of use for $29.95 per/
+                     month and charges $0.19 for each additional minute. All prices include tax and fees. Jamie/
+                      has budgeted $50 per month for calls on her cellular phone. What is the maximum number of/
+                       minutes that she can use her cellular phone each month without spending more than $50? 
+                       </p> 
+                       
+                <div className="test1Ans">
+                  <input onChange={(e) => this.setTest1(e.target.value)} name="test1" type="radio" value="A" />405 min
+                  <input onChange={(e) => this.setTest1(e.target.value)} name="test1" type="radio" value="B" />105 min
+                  <input onChange={(e) => this.setTest1(e.target.value)} name="test1" type="radio" value="C" />400 min
+                  <input onChange={(e) => this.setTest1(e.target.value)} name="test1" type="radio" value="D" />100 min                        
+                </div>
+            
+              </div>
 
-            <div>
-                test2: 
-                  <input value={this.state.servings} onChange={(e) => {
-                    this.setState({
-                    
-                      test2: e.target.value
-                      
-                    });
-                  
-                  }} />
-            </div>
-            <div>
-                boolean: 
-                  <select value={this.state.veg} onChange={(e) => {
-                    this.setState({
-                      veg: e.target.value
-                      
-                    });
-                  }}>
-                    <option value="false">Absolutely Not</option>
-                    <option value="true">Yes!</option>
-                  </select>
-            </div>
-            <div>
-                boolean2: 
-                  <select value={this.state.vegan} onChange={(e) => {
-                    this.setState({
-                      
-                      boolean2: e.target.value
-                      
-                    });
-                  }}>
-                    <option value="false">Absolutely Not</option>
-                    <option value="true">Yes!</option>
-                  </select>
-            </div>
-            <div>
-                  boolean3: 
-                    <select value={this.state.gf} onChange={(e) => {
-                      this.setState({
-                        
-                        boolean3: e.target.value
-                        
-                      });
-                    }}>
-                      <option value="false">Absolutely Not</option>
-                      <option value="true">Yes!</option>
-                    </select>
-            </div>
-            {/* <div>
-                  Meal Types:
-                  <MealTypes value={this.state.mTypes} setMealTypes={this.setMealTypes} /> */}
+              <div className="test2"> 
+                <p>Each word has been assigned a letter. The phrase “I love coding” is represented/ 
+                  as “M-X-C”. The phrase “Coding is a great career” is represented as “E-N-F-G-C”./
+                   The phrase “I want a career in coding” is represented as “E-O-X-C-I-G”. Which letter/
+                    representing the word “coding”?
+                    </p>
 
-            {/* <select label="mealTypes" name="mealTypes[]" id="mealTypes" multiple 
-                    onClick={(e) => {
-                      console.log(e.target.value);
-                      const types = document.getElementById("mealTypes").selectedOptions;
-                      const arr = [];
-                      for (let i = 0; i < types.length; i++) {
-                        arr.push(types[i].text);
-                      }
-                      console.log(types);  
-                      this.setState({
-                    
-                        mTypes: arr
-                      
-                      });
-                      console.log(this.state.mTypes);
-                  
-                    }}>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                    <option value="dinner">Dinner</option>
-                    <option value="dessert">Dessert</option>
-                    <option value="snack">Snack</option>
-                  </select>  */}
-          </div>
-          <div>
-              Typing Test
+                <div className="Test2Ans">
+                  <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="A" />G
+                  <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="B" />X
+                  <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="C" />C
+                  <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="D" />N                        
+                </div>
+                 
+              </div>
+             
+            <div>
+             <h1> Typing Test MoeNuckah!!</h1>
               <textarea value={this.state.typingTest} 
                 onChange={e => {
                   const typingTest = e.target.value;
@@ -201,7 +151,7 @@ export default class TestForm extends Component {
                   });
 
                 }} />
-                essay
+                
               <textarea value={this.state.essay}
                 onChange={(e) => {
                   const essay = e.target.value;
@@ -211,11 +161,13 @@ export default class TestForm extends Component {
                     
                   });
                 }} />
-            <button onClick={this.erase} value="Clear Test" />
-            <input type="submit" value="Submit Test" />
+              <button onClick={this.erase} value="Clear Test" />
+              <input type="submit" value="Submit Test" />
           
 
+            </div>
           </div>
+
         </form>
           
       </div>
