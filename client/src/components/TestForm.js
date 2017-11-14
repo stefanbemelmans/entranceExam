@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+import TypingTest from "TypingTest";
 // import MealTypes from "./MealTypes";
 import {withRouter} from "react-router-dom";
 
@@ -139,19 +140,12 @@ export default class TestForm extends Component {
                  
               </div>
              
-            <div>
-             <h1> Typing Test MoeNuckah!!</h1>
-              <textarea value={this.state.typingTest} 
-                onChange={e => {
-                  const typingTest = e.target.value;
-                  this.setState({
-                  
-                    typingTest 
-                    
-                  });
-
-                }} />
-                
+              <div className="typingTest">
+                <h1> Typing Test MoeNuckah!!</h1>
+                <TypingTest />
+              </div>
+              
+              
               <textarea value={this.state.essay}
                 onChange={(e) => {
                   const essay = e.target.value;
