@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import TypingTest from "TypingTest";
+import TypingTest from "./TypingTest";
 // import MealTypes from "./MealTypes";
 import {withRouter} from "react-router-dom";
 
@@ -15,12 +15,11 @@ export default class TestForm extends Component {
       phone: "",
       test1: "",
       test2: "",
-      boolean: false,
-      boolean2: false,
-      boolean3: false,
+      code1Desc: "",
+      code2Desc: "",
+      growthMind: "",
       // mTypes: [],
-      typingTest: "",
-      essay: ""
+      typingTest: {}
     };
 
     this.baseState = this.state;
@@ -145,23 +144,27 @@ export default class TestForm extends Component {
                 <TypingTest />
               </div>
               
-              
+              <div className="code1Desc">
+              <p> Determine what the following code does.</p>
+              <img src="../images/code1.png" />
+              </div>
               <textarea value={this.state.essay}
                 onChange={(e) => {
-                  const essay = e.target.value;
+                  const code1Desc = e.target.value;
                   this.setState({  
                       
-                    essay
+                    code1Desc
                     
                   });
                 }} />
+                <div>
               <button onClick={this.erase} value="Clear Test" />
               <input type="submit" value="Submit Test" />
           
 
             </div>
           </div>
-
+</div>
         </form>
           
       </div>

@@ -134,11 +134,11 @@ export default class TypingTest extends Component {
   }
 }
 TypingTest.propTypes = {
-  match: PropTypes.object,
-  recipes: PropTypes.array,
-  recipe: PropTypes.object,
-  updateRecipe: PropTypes.func,
-  loadMyRecipes: PropTypes.func,
-  history: PropTypes.object
+  // match: PropTypes.object,
+  // recipes: PropTypes.array,
+  // recipe: PropTypes.object,
+  // updateRecipe: PropTypes.func,
+  // loadMyRecipes: PropTypes.func,
+  // history: PropTypes.object
 }
 ;
