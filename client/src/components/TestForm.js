@@ -145,8 +145,8 @@ export default class TestForm extends Component {
               </div>
               
               <div className="code1Desc">
-              <p> Determine what the following code does.</p>
-              <img src="../images/code1.png" />
+                <p> Determine what the following code does.</p>
+                <img src="./code1.png" />
               </div>
               <textarea value={this.state.essay}
                 onChange={(e) => {
@@ -157,14 +157,14 @@ export default class TestForm extends Component {
                     
                   });
                 }} />
-                <div>
-              <button onClick={this.erase} value="Clear Test" />
-              <input type="submit" value="Submit Test" />
+              <div>
+                  <button onClick={this.erase} value="Clear Test" />
+                  <input type="submit" value="Submit Test" />
           
 
+                </div>
             </div>
           </div>
-</div>
         </form>
           
       </div>
