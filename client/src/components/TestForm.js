@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 import TypingTest from "./TypingTest";
 // import MealTypes from "./MealTypes";
 import {withRouter} from "react-router-dom";
+import "../css/TestForm.css";
 
 export default class TestForm extends Component {
   constructor(props) {
     super(props);
-  
-    this.state = 
+
+    this.state =
     {
       fName: "",
       lName: "",
@@ -23,10 +24,10 @@ export default class TestForm extends Component {
     };
 
     this.baseState = this.state;
-    
+
     // this.setMealTypes = this.setMealTypes.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
+
   }
 
   componentDidMount() {
@@ -37,150 +38,177 @@ export default class TestForm extends Component {
     e.preventDefault();
     const test = this.state;
     this.props.submitTest(test);
-   
+
     // this.props.history.push("/");
   }
-  
+
   setTest1(e) {
-    
+
     console.log(e.target.value, e.target.name);
     this.setState({
       test1: e.target.value
     });
   }
-  
-  setTest2(e) { 
+
+  setTest2(e) {
     console.log(e.target.value, e.target.name);
     this.setState({
       test2: e.target.value
     });
   }
- 
+
 
   erase() {
     this.setState(this.baseState);
     // window.location.reload();
   }
-  
+
   render() {
-    
+
     return (
 
-      <div>
+      <div className="body">
         <form onSubmit={this.handleSubmit}>
           <div>
-            <h1>Austin Coding Academy Admissions Exam</h1>
-            <h3>Please complete the following Admissions exam to be considered for acceptance into Austin Coding Academy. 
-              </h3>
+            <img className="ACAlogo" src="/images/austin-logo-white.svg" alt="ACA Logo" />
+            <h1 className="tfHeader">
 
-            <div>
-                First Name: 
+              Austin Coding Academy Admissions Exam
+            </h1>
+            <h3 className="tfIntro">
+              Please complete the following Admissions exam
+              to be considered for acceptance into Austin Coding Academy.
+            </h3>
+
+            <div className="tfContact">
+              <h3 className="problemSpacer">
+                Personal Information
+              </h3>
+                First Name:
                   <input value={this.state.fName} onChange={(e) => {
-                    
+
                     this.setState({
-                      fName: e.target.value 
+                      fName: e.target.value
                     });
                     console.log(this.state.fName);
-                  } 
+                  }
                   } />
 
-                Last Name: 
+                Last Name:
                   <input value={this.state.lName} onChange={(e) => {
-                    
+
                     this.setState({
-                      lName: e.target.value 
+                      lName: e.target.value
                     });
                     console.log(this.state.lName);
-                  } 
+                  }
                   } />
 
-                Phone: 
+                Phone:
                   <input value={this.state.phone} onChange={(e) => {
-                    
+
                     this.setState({
-                      phone: e.target.value 
+                      phone: e.target.value
                     });
                     console.log(this.state.phone);
-                  } 
+                  }
                   } />
             </div>
-            
-                  
+            <br />
+            <hr />
+
             <div>
               <div className="test1">
-                <p>Jamie’s cellular-phone company offers a plan that allows 300 minutes of use for $29.95 per/
-                     month and charges $0.19 for each additional minute. All prices include tax and fees. Jamie/
-                      has budgeted $50 per month for calls on her cellular phone. What is the maximum number of/
-                       minutes that she can use her cellular phone each month without spending more than $50? 
-                       </p> 
-                       
+                <h3 className="problemSpacer">
+                  Problem 1
+                </h3>
+                <p>Jamie’s cellular-phone company offers a plan that allows 300 minutes
+                  of use for $29.95 per/ month and charges $0.19 for each additional
+                  minute. All prices include tax and fees. Jamie/ has budgeted
+                  $50 per month for calls on her cellular phone. What is the maximum number of/
+                  minutes that she can use her cellular phone each month without
+                  spending more than $50?
+                </p>
+
                 <div className="test1Ans">
-                  <input onChange={(e) => this.setTest1(e.target.value)} name="test1" type="radio" value="A" />405 min
-                  <input onChange={(e) => this.setTest1(e.target.value)} name="test1" type="radio" value="B" />105 min
-                  <input onChange={(e) => this.setTest1(e.target.value)} name="test1" type="radio" value="C" />400 min
-                  <input onChange={(e) => this.setTest1(e.target.value)} name="test1" type="radio" value="D" />100 min                        
+                  <input onChange={(e) => this.setTest1(e.target.value)}
+                    name="test1" type="radio" value="A" /> 405 min
+                  <input onChange={(e) => this.setTest1(e.target.value)}
+                    name="test1" type="radio" value="B" />105 min
+                  <input onChange={(e) => this.setTest1(e.target.value)}
+                    name="test1" type="radio" value="C" />400 min
+                  <input onChange={(e) => this.setTest1(e.target.value)}
+                    name="test1" type="radio" value="D" />100 min
                 </div>
-            
+
               </div>
 
-              <div className="test2"> 
-                <p>Each word has been assigned a letter. The phrase “I love coding” is represented/ 
+              <div className="test2">
+                <h3 className="problemSpacer">
+                  Problem 2
+                </h3>
+                <p>
+                  Each word has been assigned a letter. The phrase “I love coding” is represented/
                   as “M-X-C”. The phrase “Coding is a great career” is represented as “E-N-F-G-C”./
-                   The phrase “I want a career in coding” is represented as “E-O-X-C-I-G”. Which letter/
-                    representing the word “coding”?
-                    </p>
+                  The phrase “I want a career in coding”
+                  is represented as “E-O-X-C-I-G”. Which letter/
+                  representing the word “coding”?
+                </p>
 
                 <div className="Test2Ans">
                   <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="A" />G
                   <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="B" />X
                   <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="C" />C
-                  <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="D" />N                        
+                  <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="D" />N
                 </div>
-                 
+
               </div>
-             
+
               <div className="typingTest">
-                <h1> Typing Test MoeNuckah!!</h1>
+                <h3 className="problemSpacer">
+                  Problem 3
+                </h3>
                 <TypingTest />
               </div>
-              
+
               <div className="code1Desc">
+                <h3 className="problemSpacer">
+                  Problem 4
+                </h3>
                 <p> Determine what the following code does.</p>
                 <img src="./code1.png" />
               </div>
               <textarea value={this.state.essay}
                 onChange={(e) => {
                   const code1Desc = e.target.value;
-                  this.setState({  
-                      
+                  this.setState({
+
                     code1Desc
-                    
+
                   });
                 }} />
               <div>
                   <button onClick={this.erase} value="Clear Test" />
                   <input type="submit" value="Submit Test" />
-          
+
 
                 </div>
             </div>
           </div>
         </form>
-          
+
       </div>
 
-  
+
     );
   }
 }
 
 TestForm.propTypes = {
-  handleSubmit: PropTypes.func,  
+  handleSubmit: PropTypes.func,
   submitTest: PropTypes.func,
   history: PropTypes.object,
   test: PropTypes.object
-  
+
 
 };
-
-
