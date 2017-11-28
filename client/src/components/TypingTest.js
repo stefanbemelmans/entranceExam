@@ -109,8 +109,8 @@ export default class TypingTest extends Component {
 
       <div>
         <div className="typeThis">
-          <p>Type this: </p>
-          <h3>{this.state.paragraph}</h3>
+          <p className="textSpacer">Type this: </p>
+          <h3 className="textSpacer">{this.state.paragraph}</h3>
         </div>
 
         <textarea className="TTTextarea" value={this.state.tester} onChange={(e) => {

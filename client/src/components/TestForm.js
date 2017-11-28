@@ -90,6 +90,7 @@ export default class TestForm extends Component {
               <h3 className="problemSpacer">
                 Personal Information
               </h3>
+              <div className="textSpacer">
                 First Name:
                   <input value={this.state.fName} onChange={(e) => {
 
@@ -119,6 +120,7 @@ export default class TestForm extends Component {
                     console.log(this.state.phone);
                   }
                   } />
+              </div>
             </div>
             <br />
             <hr />
@@ -128,7 +130,7 @@ export default class TestForm extends Component {
                 <h3 className="problemSpacer">
                   Problem 1
                 </h3>
-                <p>Jamie’s cellular-phone company offers a plan that allows 300 minutes
+                <p className="textSpacer">Jamie’s cellular-phone company offers a plan that allows 300 minutes
                   of use for $29.95 per/ month and charges $0.19 for each additional
                   minute. All prices include tax and fees. Jamie/ has budgeted
                   $50 per month for calls on her cellular phone. What is the maximum number of/
@@ -136,7 +138,7 @@ export default class TestForm extends Component {
                   spending more than $50?
                 </p>
 
-                <div className="test1Ans">
+                <div className="test1Ans textSpacer">
                   <input onChange={(e) => this.setTest1(e.target.value)}
                     name="test1" type="radio" value="A" /> 405 min
                   <input onChange={(e) => this.setTest1(e.target.value)}
@@ -153,7 +155,7 @@ export default class TestForm extends Component {
                 <h3 className="problemSpacer">
                   Problem 2
                 </h3>
-                <p>
+                <p className="textSpacer">
                   Each word has been assigned a letter. The phrase “I love coding” is represented/
                   as “M-X-C”. The phrase “Coding is a great career” is represented as “E-N-F-G-C”./
                   The phrase “I want a career in coding”
@@ -161,7 +163,7 @@ export default class TestForm extends Component {
                   representing the word “coding”?
                 </p>
 
-                <div className="Test2Ans">
+                <div className="Test2Ans textSpacer">
                   <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="A" />G
                   <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="B" />X
                   <input onChange={(e) => this.setTest2(e)} name="test2" type="radio" value="C" />C
@@ -177,11 +179,11 @@ export default class TestForm extends Component {
                 <TypingTest />
               </div>
 
-              <div className="code1Desc">
+              <div className="code1Desc ">
                 <h3 className="problemSpacer">
                   Problem 4
                 </h3>
-                <p> Determine what the following code does.</p>
+                <p className="textSpacer"> Determine what the following code does.</p>
                 <img src="./code1.png" />
               </div>
               <textarea value={this.state.essay}
@@ -193,7 +195,7 @@ export default class TestForm extends Component {
 
                   });
                 }} />
-              <div>
+              <div className="textSpacer">
                 <button onClick={this.erase} value="Clear Test" />
                 <input className="submitButton" type="submit" value="Submit Test" />
               </div>
