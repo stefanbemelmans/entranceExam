@@ -1,0 +1,55 @@
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+.body {
+  font-family: "Quicksand",sans-serif;
+
+}
+
+.addMargin {
+  margin: 0 15px 0 15px;
+}
+
+.tfHeader {
+  color: white;
+  background-color: #064665;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 150px 1fr  ;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "logo text"
+}
+
+.tfHeaderText {
+  grid-area: text ;
+  text-align: right;
+  margin: auto;
+}
+
+.ACALogo {
+  grid-area: logo;
+  height: 50px;
+  margin: auto;
+}
+
+.problemSpacer {
+  color: white;
+  background-color: #064665;
+  padding: 10px;
+}
+
+.textSpacer {
+  padding: 15px;
+}
+
+.tfIntro {
+  background-color: 	#D3D3D3;
+  margin-top: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.submitButton {
+  background-color: #F7B141;
+}
